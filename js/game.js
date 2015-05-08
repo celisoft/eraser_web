@@ -217,12 +217,14 @@ function danger_collision(player, danger)
 function check_eraser_collision()
 {
 	this.game.physics.arcade.overlap(this.cursor_sprite, dangers, erase_danger, null, this);
+	this.game.physics.arcade.overlap(this.cursor_sprite, slimes, erase_danger, null, this);
+	this.game.physics.arcade.overlap(this.cursor_sprite, timers, erase_danger, null, this);
 }
 
 //Destroy the danger to erase
-function erase_danger(eraser, danger)
+function erase_danger(eraser, game_object)
 {
-	danger.kill();
+	game_object.kill();
 }
 
 //Function to set 'menu' state
