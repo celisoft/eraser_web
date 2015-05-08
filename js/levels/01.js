@@ -1,6 +1,8 @@
 //Create function required by level 01
 function lvl01_create()
 {
+	global_timer = 0;
+	
 	this.game.add.image(0, 0, 'bg_01');
 
 	//Activate physic engine
@@ -94,6 +96,8 @@ function lvl01_switch()
 	player.destroy();
 	player_dir = 1;
 	key_cursors = 0;
+
+	global_timer += 15-level_timer;
 
 	this.game.state.start('lvl02');
 }

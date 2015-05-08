@@ -19,6 +19,7 @@ var player_dir;
 var key_cursors;
 var level_timer;
 var level_timer_display;
+var global_timer;
 var timers;
 
 //Initialize game into 1024x768 canvas. Phaser.AUTO switches to WebGL if possible.

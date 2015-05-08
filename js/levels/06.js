@@ -99,6 +99,7 @@ function lvl06_switch()
 	player_dir = 1;
 	key_cursors = 0;
 
+	global_timer += 15-level_timer;
 	this.game.state.start('lvl07');
 }
 
