@@ -230,3 +230,9 @@ function back_to_menu()
 {
 	this.game.state.start('menu');
 }
+
+//Function to replace current location by the official game page
+function goto_celisoft()
+{
+	window.location.replace('http://www.celisoft.com/nos-jeux/eraser/');
+}
