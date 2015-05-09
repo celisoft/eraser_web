@@ -7,7 +7,7 @@ function menu_create()
 	if(!music)
 	{
 		music = this.game.add.audio('music');
-		music.play('', 0, 1, true);
+		music.play('', 0, 0.25, true);
 	}
 
 	//Display buttons and defines a callback
@@ -19,14 +19,14 @@ function menu_create()
 	bt_exit.events.onInputDown.add(menu_exit, this);
 
 	//Define the mouse cursor and callback require on move
-	this.cursor_sprite = this.game.add.image(game.world.centerX, game.world.centerY, 'mouse_cursor');	
+	this.cursor_sprite = this.game.add.image(game.world.centerX, game.world.centerY, 'mouse_cursor');
 	this.game.input.addMoveCallback(mouse_move, this);
 }
 
 //The user choose to play
 function menu_next()
 {
-	this.game.state.start('lvl01');
+	this.game.state.start('lvl09');
 }
 
 //The user choose exit
@@ -37,4 +37,3 @@ function menu_exit()
 	this.cursor_sprite.destroy();
 	this.game.state.start('quit', false, true);
 }
-

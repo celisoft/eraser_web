@@ -4,6 +4,9 @@
 
 //Common vars
 var music;
+var snd_splash;
+var snd_time;
+var snd_erase;
 var cursor_sprite;
 var platforms;
 var exit_door;
@@ -19,7 +22,6 @@ var player_dir;
 var key_cursors;
 var level_timer;
 var level_timer_display;
-var global_timer;
 var timers;
 
 //Initialize game into 1024x768 canvas. Phaser.AUTO switches to WebGL if possible.
@@ -202,6 +204,11 @@ function decrease_time()
 function timer_collision(player, timer)
 {
 	timer.kill();
+	if(!snd_time)
+	{
+		snd_time=this.game.add.audio('snd_timer');
+	}
+	snd_time.play();
 	level_timer += 5;
 	level_timer_display.text = level_timer;
 }
@@ -211,6 +218,11 @@ function danger_collision(player, danger)
 {
 	//Do not use deztroy() -> a.body will be null in update function
 	player.kill();
+	if(!snd_splash)
+	{
+		snd_splash=this.game.add.audio('snd_dead_splash');
+	}
+	snd_splash.play();
 	this.game.state.start('fail');
 }
 
@@ -226,6 +238,11 @@ function check_eraser_collision()
 function erase_danger(eraser, game_object)
 {
 	game_object.kill();
+	if(!snd_erase)
+	{
+		snd_erase=this.game.add.audio('snd_eraser');
+	}
+	snd_erase.play();
 }
 
 //Function to set 'menu' state
