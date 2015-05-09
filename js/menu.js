@@ -26,7 +26,7 @@ function menu_create()
 //The user choose to play
 function menu_next()
 {
-	this.game.state.start('lvl09');
+	this.game.state.start('lvl01');
 }
 
 //The user choose exit
